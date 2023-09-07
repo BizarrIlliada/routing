@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class RouterNamesService {
   readonly HOME_PATH = '';
-  readonly SERVERS_PATH = 'servers123';
+  readonly SERVERS_PATH = 'servers';
   readonly USERS_PATH = 'users';
   readonly NOT_FOUND_PATH = 'not-found';
 

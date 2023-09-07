@@ -1,6 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
+import { RouterNamesService } from '../router/router-names.service';
+import { AuthGuard } from "../auth-guard.service";
+
 import { HomeComponent } from "../home/home.component";
 import { ServersComponent } from "../servers/servers.component";
 import { ServerComponent } from "../servers/server/server.component";
@@ -9,7 +12,6 @@ import { UsersComponent } from "../users/users.component";
 import { UserComponent } from "../users/user/user.component";
 import { NotFoundPageComponent } from "../not-found-page/not-found-page.component";
 
-import { RouterNamesService } from '../router/router-names.service';
 
 const paths = new RouterNamesService();
 
@@ -20,6 +22,8 @@ const appRoutes: Routes = [
   },
   {
     path: paths.SERVERS_PATH,
+    // canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     component: ServersComponent,
     children: [
       {
@@ -34,6 +38,7 @@ const appRoutes: Routes = [
   },
   {
     path: paths.USERS_PATH,
+    // canActivate: [AuthGuard],
     component: UsersComponent,
     children: [
       {
