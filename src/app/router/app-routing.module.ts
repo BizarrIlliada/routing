@@ -9,15 +9,17 @@ import { UsersComponent } from "../users/users.component";
 import { UserComponent } from "../users/user/user.component";
 import { NotFoundPageComponent } from "../not-found-page/not-found-page.component";
 
-import routerNames from "./router-names";
+import { RouterNamesService } from '../router/router-names.service';
+
+const paths = new RouterNamesService();
 
 const appRoutes: Routes = [
   {
-    path: routerNames.HOME_PATH,
+    path: paths.HOME_PATH,
     component: HomeComponent,
   },
   {
-    path: routerNames.SERVERS_PATH,
+    path: paths.SERVERS_PATH,
     component: ServersComponent,
     children: [
       {
@@ -31,7 +33,7 @@ const appRoutes: Routes = [
     ]
   },
   {
-    path: routerNames.USERS_PATH,
+    path: paths.USERS_PATH,
     component: UsersComponent,
     children: [
       {
@@ -41,12 +43,12 @@ const appRoutes: Routes = [
     ]
   },
   {
-    path: routerNames.NOT_FOUND_PATH,
+    path: paths.NOT_FOUND_PATH,
     component: NotFoundPageComponent,
   },
   {
     path: '**',
-    redirectTo: routerNames.NOT_FOUND_PATH,
+    redirectTo: paths.NOT_FOUND_PATH,
     pathMatch: 'full'
   }
 ];

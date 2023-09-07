@@ -9,19 +9,19 @@
             exact: true
           }"
         >
-          <a routerLink="/">Home</a>
+          <a [routerLink]="paths.HOME_PATH">Home</a>
         </li>
         <li
           role="presentation"
           routerLinkActive="active"
         >
-          <a routerLink="/servers">Servers</a>
+          <a [routerLink]="paths.SERVERS_PATH">Servers</a>
         </li>
         <li
           role="presentation"
           routerLinkActive="active"
         >
-          <a routerLink="/users">Users</a>
+          <a [routerLink]="paths.USERS_PATH">Users</a>
         </li>
       </ul>
     </div>

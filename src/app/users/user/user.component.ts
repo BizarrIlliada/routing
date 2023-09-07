@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { RouterNamesService } from 'src/app/router/router-names.service';
 
 @Component({
   selector: 'app-user',
@@ -10,9 +11,11 @@ import { Subscription } from 'rxjs';
 export class UserComponent implements OnInit, OnDestroy {
   user: { id: number, name: string };
   paramsSubscription: Subscription;
+  paths: RouterNamesService = null;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private routerNames: RouterNamesService
   ) { }
 
   ngOnInit() {
@@ -22,6 +25,8 @@ export class UserComponent implements OnInit, OnDestroy {
 
       this.user = { id, name }
     })
+
+    this.paths = this.routerNames;
   }
 
   ngOnDestroy(): void {

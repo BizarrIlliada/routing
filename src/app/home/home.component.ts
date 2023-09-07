@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RouterNamesService } from '../router/router-names.service';
 
 @Component({
   selector: 'app-home',
@@ -7,16 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  paths: RouterNamesService = null;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private routerNames: RouterNamesService
+  ) { }
 
   toServer(id) {
     console.log('Servers page is active');
 
-    this.router.navigate(['/servers', id, 'edit'], { queryParams: { allowEdit: id }, fragment: 'loading' })
+    this.router.navigate([this.paths.SERVERS_PATH, id, 'edit'], { queryParams: { allowEdit: id }, fragment: 'loading' })
   }
 
   ngOnInit() {
+    this.paths = this.routerNames;
   }
-
 }
