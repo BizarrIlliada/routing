@@ -16,15 +16,14 @@ export class ServersComponent implements OnInit {
     private route: ActivatedRoute
     ) { }
 
-  onReload() {
-    this.router.navigate(
-      ['/servers'],
-      // { relativeTo: this.route }
-    )
-  }
+  // onReload() {
+  //   this.router.navigate(
+  //     ['/servers'],
+  //     // { relativeTo: this.route }
+  //   )
+  // }
 
   ngOnInit() {
     this.servers = this.serversService.getServers();
   }
-
 }
