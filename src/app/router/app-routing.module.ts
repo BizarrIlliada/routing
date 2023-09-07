@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { RouterNamesService } from '../router/router-names.service';
 import { AuthGuard } from "../auth-guard.service";
+import { CanDeactivateGuard } from "../servers/edit-server/can-deactivate-guard.service";
 
 import { HomeComponent } from "../home/home.component";
 import { ServersComponent } from "../servers/servers.component";
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
       {
         path: ':id/edit',
         component: EditServerComponent,
+        canDeactivate: [CanDeactivateGuard]
       },
     ]
   },
