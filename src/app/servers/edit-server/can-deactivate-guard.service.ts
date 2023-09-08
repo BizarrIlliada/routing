@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot } from '@ang
 import { Observable } from 'rxjs';
 
 export interface CanComponentDeactivate {
-  canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean;
 }
 
 @Injectable()

@@ -38,7 +38,7 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
 
   canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
     if ((this.serverName !== this.server.name || this.serverStatus !== this.server.status) && !this.changesSaved) {
-      return confirm('The page has unsaved data. Do you sure you want to continue?');
+      return confirm('This page has unsaved data. Are you sure you want to continue?');
     } else {
       return true;
     }

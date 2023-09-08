@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   toServer(id) {
-    this.router.navigate([this.paths.SERVERS_PATH, id, 'edit'], { queryParams: { allowEdit: id }, fragment: 'loading' })
+    this.router.navigate([this.paths.SERVERS_PATH, id], { queryParams: { isAllowedToEdit: id % 2 !== 0 ? 1 : 0 }, fragment: 'loading' })
     console.log('Servers page is active');
   }
 
